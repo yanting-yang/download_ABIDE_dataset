@@ -1,0 +1,5 @@
+matplotlib
+nilearn
+notebook
+numpy
+pandas

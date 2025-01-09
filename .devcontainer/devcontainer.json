@@ -1,0 +1,25 @@
+{
+    "image": "ghcr.io/yanting-yang/download_abide_dataset:250108",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "python.defaultInterpreterPath": "/opt/conda/bin/python"
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.autopep8",
+                "ms-toolsai.jupyter",
+                "esbenp.prettier-vscode"
+            ]
+        }
+    },
+    "mounts": [
+        "source=/bigdata,target=/bigdata,type=bind,consistency=cached"
+    ],
+    "containerEnv": {
+        "GH_TOKEN": "${localEnv:GH_TOKEN}",
+        "GIT_USER_NAME": "${localEnv:GIT_USER_NAME}",
+        "GIT_USER_EMAIL": "${localEnv:GIT_USER_EMAIL}"
+    },
+    "postCreateCommand": "bash ./.devcontainer/postCreateCommand.sh"
+}
